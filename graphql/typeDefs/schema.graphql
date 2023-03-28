@@ -1,0 +1,64 @@
+type Query {
+  topAnime(page: Int):[Anime]
+  animeSearch(id: ID, page: Int): [Anime]
+  animeDetails(id: ID): AnimeDetails
+  streamLinkDetails(id: ID): [StreamLink]
+  recentEpisodes(page: Int): RecentObject
+}
+
+type Anime {
+  id: ID
+  title: String
+  image: String
+  releaseDate: String
+  subOrDub: String
+  animeDetails: AnimeDetails
+}
+
+type RecentObject {
+  results: [Recent]
+  hasNextPage: Boolean
+}
+
+type Recent {
+  animeId: ID
+  episodeId: ID
+  episodeNumber: Int
+  animeTitle: String
+  image: String
+  animeUrl: String
+  anime: AnimeDetails
+  streamLinks: [StreamLink]
+}
+
+type AnimeDetails {
+  id: ID
+  title: String
+  url: String
+  image: String
+  releaseDate: String
+  description: String
+  genres: [String]
+  subOrDub: String
+  type: String
+  status: String
+  otherName: String
+  totalEpisodes: Int
+  episodes: [Episode]
+  trailer: String
+}
+
+type Episode {
+  id: ID
+  number: Int
+  url: String
+  streamLinks: [StreamLink]
+}
+
+type StreamLink {
+  id: ID
+  url: String
+  quality: String
+  isM3U8: Boolean
+  episodeId: ID
+}
