@@ -1,64 +1,56 @@
 type Query {
   topAnime(page: Int):[Anime]
-  animeSearch(id: ID, page: Int): [Anime]
+  recentEpisodes(page: Int): [Recent]
   animeDetails(id: ID): AnimeDetails
-  streamLinkDetails(id: ID): [StreamLink]
-  recentEpisodes(page: Int): RecentObject
+  streamLinkDetails(id: ID): StreamLink
+  animeSearch(id: ID, page: Int): [Anime]
 }
 
 type Anime {
   id: ID
   title: String
-  image: String
-  releaseDate: String
-  subOrDub: String
-  animeDetails: AnimeDetails
-}
-
-type RecentObject {
-  results: [Recent]
-  hasNextPage: Boolean
+  trailer: String
+  imgUrl: String
 }
 
 type Recent {
-  animeId: ID
-  episodeId: ID
-  episodeNumber: Int
-  animeTitle: String
-  image: String
-  animeUrl: String
-  anime: AnimeDetails
-  streamLinks: [StreamLink]
+  animeId:ID
+  episodeId:ID
+  name: String
+  episodeNum: Int
+  subOrDub : String
+  imgUrl: String
 }
 
-type AnimeDetails {
+type AnimeDetails{
   id: ID
-  title: String
-  url: String
-  image: String
-  releaseDate: String
-  description: String
-  genres: [String]
-  subOrDub: String
+  name: String
   type: String
   status: String
-  otherName: String
   totalEpisodes: Int
-  episodes: [Episode]
-  trailer: String
+  released: Int
+  genres: [String]
+  synopsis: String
+  imageUrl: String
+  episode_id: [EpisodeID]
 }
 
-type Episode {
-  id: ID
-  number: Int
-  url: String
-  streamLinks: [StreamLink]
+type EpisodeID{
+    episodeId: ID
+    episodeNumber: Int
 }
+
 
 type StreamLink {
   id: ID
-  url: String
-  quality: String
-  isM3U8: Boolean
-  episodeId: ID
+  hls: String
+  streamsb: String
+  xstreamcdn: String
+  animeNameWithEP: String
+  ep_num: Int
+  anime_info: String
+  nextEpLink: String
+  nextEpText: String
+  prevEpLink: String
+  prevEpText: String
 }
