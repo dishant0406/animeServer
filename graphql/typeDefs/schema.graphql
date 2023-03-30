@@ -33,6 +33,7 @@ type AnimeDetails{
   synopsis: String
   imageUrl: String
   episode_id: [EpisodeID]
+  trailer: String
 }
 
 type EpisodeID{
