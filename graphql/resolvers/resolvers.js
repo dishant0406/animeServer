@@ -65,6 +65,10 @@ const Query = {
     const page = args.page || 0
     const res = await axios.get(URL + `/recent-release/?page=${page}`)
     return res.data
+  },
+  recommandedAnime: async (parent, args) => {
+    const res = await axios.get(URL + `/genre/${args.genre}`)
+    return res.data
   }
 
 }

@@ -4,6 +4,7 @@ type Query {
   animeDetails(id: ID): AnimeDetails
   streamLinkDetails(id: ID): StreamLink
   animeSearch(id: ID, page: Int): [Anime]
+  recommandedAnime(genre: String): [Recommanded]
 }
 
 type Anime {
@@ -11,6 +12,12 @@ type Anime {
   title: String
   trailer: String
   imgUrl: String
+}
+
+type Recommanded {
+  animeId: ID
+  animeTitle: String
+  animeImg: String
 }
 
 type Recent {
