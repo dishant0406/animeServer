@@ -24,7 +24,7 @@ type Recent {
   animeId:ID
   episodeId:ID
   name: String
-  episodeNum: Int
+  episodeNum: Float
   subOrDub : String
   imgUrl: String
 }
@@ -45,7 +45,7 @@ type AnimeDetails{
 
 type EpisodeID{
     episodeId: ID
-    episodeNumber: Int
+    episodeNumber: Float
 }
 
 
@@ -55,7 +55,7 @@ type StreamLink {
   streamsb: String
   xstreamcdn: String
   animeNameWithEP: String
-  ep_num: Int
+  ep_num: Float
   anime_info: String
   nextEpLink: String
   nextEpText: String
