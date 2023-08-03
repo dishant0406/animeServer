@@ -58,7 +58,7 @@ const Query = {
         episodeId: epi.episodeId,
         episodeNumber: epi.episodeNum,
       }
-    })
+    }).reverse()
 
     data.data.id = args.id
     return data.data
